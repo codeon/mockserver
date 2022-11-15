@@ -57,6 +57,12 @@ spec:
             successThreshold: 1
             failureThreshold: 10
           env:
+            - name: MOCKSERVER_DYNAMICALLY_CREATE_CERTIFICATE_AUTHORITY_CERTIFICATE
+              value: true
+            - name: MOCKSERVER_CERTIFICATE_DIRECTORY_TO_SAVE_DYNAMIC_SSL_CERTIFICATE
+              value: /config
+            - name: MOCKSERVER_PROACTIVELY_INITIALISE_TLS
+              value: true              
             - name: MOCKSERVER_LOG_LEVEL
               value: {{ .Values.app.logLevel | quote }}
             - name: SERVER_PORT
